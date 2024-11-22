@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "type": "Voz pasiva",
+        "sentences": [
+            {
+                "id": 0,
+                "sentence": "The tale was told by an old sailor",
+                "translation": "La historia fue contada por un viejo marinero."
+            },
+            {
+                "id":1,
+                "sentence": "The book was written by a renowned author.",
+                "translation": "El libro fue escrito por un autor renombrado."
+            },
+            {
+                "id":2,
+                "sentence": "The castle was surrounded by a dense, mysterious fog",
+                "translation": "El castillo estaba rodeado por una densa y misteriosa niebla."
+            },
+            {
+                "id":3,
+                "sentence": "Her heart was broken by his cruel words.",
+                "translation": "Su corazón fue roto por sus crueles palabras."
+            }
+        ]
+    }
+]
