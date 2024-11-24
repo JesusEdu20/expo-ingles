@@ -6,6 +6,11 @@ export default function Game()
     
     const [collections, setCollections] = useState(data);
     const [collectionId, setCollectionId] = useState(0);
+
+
+
+    const [button, setButton] = useState([]);
+    const [randomSentence, setRandomSentence] = useState(null);
     
     const [ sentenceData, setSentenceData ] = useState(null);
     const [ sentence, setSentence ] = useState(null);
@@ -16,6 +21,16 @@ export default function Game()
     useEffect(() => {
         setSentenceData({...collections[collectionId].sentences[0]});
         setSentence([...collections[collectionId].sentences[0].sentence.split(" ")]);
+        setRandomSentence(addRandomOrderToSentence([...collections[collectionId].sentences[0].sentence.split(" ")]));
+        let oracionDesordenada = [...collections[collectionId].sentences[0].sentence.split(" ")];       
+        let idea = oracionDesordenada.map((word, index) => {
+            return {
+                word:word,
+                id:index,
+                estado:false
+            }
+        })
+        setButton(idea);
     }, []) // tengo que hacer unos arreglo aca
     
     const addRandomOrderToSentence = (sentence) => {
@@ -49,6 +64,20 @@ export default function Game()
         setSentenceData({...sentences[indexOfTheNextSentence]});
         setSentence([...sentences[indexOfTheNextSentence].sentence.split(" ")]);
         setShowCorrectAnswerScreen(false)
+    }
+
+    const insertWord = (e) => {
+        
+let idButton = e.target.getAttribute("data-id");
+
+
+      let buttonState =  button.find(({id})=>{
+            return id==idButton;
+        })
+
+      let newState = {...buttonState, estado:true}
+      
+
     }
 
     const clearInputs = (inputs) => {// pendiente
@@ -105,6 +134,7 @@ export default function Game()
                         (
                             sentence.map((word, index) => 
                             {
+                        
                                 return (
                                     <input className="input-word" type="text" data-value={word} key={index}></input>
                                 )
@@ -114,10 +144,12 @@ export default function Game()
 
                     {
                         !sentence ? "Cargando..." : 
-                        (addRandomOrderToSentence(sentence).map((word, index) => 
+                        (randomSentence.map((word, index) => 
                         {
+                            
                             return (
-                                <p className="sample-word" key={index}>{word}</p>
+                                <button onClick={insertWord} className="sample-word" data-id={index} key={index}>{word}</button>
+                                
                             )
                         }))
                     }
