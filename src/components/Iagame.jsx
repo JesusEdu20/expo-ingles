@@ -27,16 +27,29 @@ export default function Iagame() {
 
     setOracionActual(nuevaOracion);
     setSentence(nuevaOracion.split(' '))
-    setPalabras(nuevaOracion.split(' ').map(palabra => ({
+
+    setPalabras(addRandomOrderToSentence(nuevaOracion.split(" ")).map(palabra => ({
         texto: palabra,
         seleccionado: false
       })));
+
     setInputs(nuevaOracion.split(' ').map(palabra => ({
         value:palabra,
         texto: "",
         seleccionado: false
       })));
   }, []);
+
+  const addRandomOrderToSentence = (sentence) => {
+    let random = [];
+    const wordPool = [...sentence]
+    for(let i = 0; i < sentence.length; i++){
+        const randomIndex = Math.floor(Math.random() * wordPool.length);
+        random.push(...wordPool.splice(randomIndex, 1));
+    }
+    
+    return random
+  }
 
   const nextSentence = () =>{
     const nuevaOracion = oraciones[Math.floor(Math.random() * oraciones.length)];
