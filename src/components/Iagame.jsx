@@ -145,7 +145,7 @@ const showCorrectAnswerResume = () => {
 
   };
   return (
-    <div>
+    <div className='general-container'>
         
 
        <div className='general'>
