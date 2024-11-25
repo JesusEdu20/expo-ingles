@@ -1,0 +1,53 @@
+---
+import  Layout from "../layouts/Layout.astro";
+import Quotes from "../components/quotes.astro";
+import QuoteTranslation from "../components/QuoteTranslation.astro";
+---
+
+<Layout title="Voz pasiva">
+    <div>
+        <section class="color-bg"></section>
+        <div class="video-container">
+            <video src="/orgullo-prejuicio.mp4" autoplay  transition:name="orgullo-prejuicio-video"  transition:persist></video>
+        </div>
+        <Quotes text="It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife." person="Pride and Prejudice de Jane Austen (1813)" imgWidth="100px" imgHeight="100px" imgUrl="/orgullo-prejuicio.png"></Quotes>
+
+    </div>
+</Layout>
+<style>
+   div {
+    min-width: 320px;
+    background-color: rgb(252, 233, 228);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+   }
+   .color-bg {
+    position: absolute;
+    z-index: -1;
+    background-color: rgba(17, 16, 16, 0.404);
+    width: 100%;
+    height: 100%;
+   }
+   .video-container {
+    min-width: 320px;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+  }
+ 
+</style>

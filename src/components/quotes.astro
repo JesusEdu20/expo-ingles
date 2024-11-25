@@ -1,0 +1,105 @@
+---
+const { text, person, imgWidth, imgHeight, imgUrl} = Astro.props
+---
+
+<div>
+    <blockquote>
+        <p>
+            {text}
+        </p>
+        <cite>{person}</cite>
+    </blockquote>
+    <div class="quote-img-container" style=`width: ${imgWidth}; height: ${imgHeight}`>
+        <img src={imgUrl}>
+    </div>
+
+    <a class="quote-button" type="button"  href="/">VOLVER |</a>
+   
+        
+</div>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div {
+ position: relative;
+}
+
+blockquote {
+  font-style: italic;
+  font-size: 1.2em;
+  color: #555; /* Color de texto gris suave */
+  border-left: 4px solid #ccc; /* Línea vertical para destacar la cita */
+  margin: 1.5em 0;
+  padding-left: 1em;
+  line-height: 1.6;
+  background-color: #f5f2e4; /* Fondo suave */
+  border-radius: 4px;
+
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+blockquote::before {
+  content: "“"; /* Comillas de apertura */
+  font-size: 2em;
+  color: #ccc;
+  vertical-align: top;
+  margin-right: 0.1em;
+}
+
+blockquote::after {
+  content: "”"; /* Comillas de cierre */
+  font-size: 2em;
+  color: #ccc;
+  vertical-align: bottom;
+  margin-left: 0.1em;
+}
+
+cite {
+  display: block;
+  font-size: 0.9em;
+  color: #777; /* Texto más claro para el autor */
+  margin-top: 0.5em;
+  text-align: right; /* Alineado a la derecha */
+}
+
+.quote-img-container {
+   /*  width: 120px;
+    height: 120px; */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.quote-button {
+    border: 0;
+    background-color: unset;
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    cursor: pointer;
+    letter-spacing: 6px;
+    outline: none;
+
+    background: linear-gradient(45deg, #aaa9a9, #6e6e6e, #424242);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: reflective-blink 3s infinite alternate;
+
+    background-color: aqua;
+}
+
+
+
+</style>

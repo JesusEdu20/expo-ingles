@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import { ViewTransitions } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -15,6 +16,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<slot />
@@ -29,6 +31,13 @@ const { title } = Astro.props;
 		--color-text: #fff; /* Blanco */
 		--color-background: #000000; /* Negro */
 	}
-
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body {
+		min-width:  530px;
+	}
 	/*responsive*/
 </style>
