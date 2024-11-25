@@ -6,6 +6,10 @@
   flex-wrap: wrap;
 }
 
+.control-container{
+  display: grid;
+}
+
 .general{
     display: flex;
     flex-direction: column;
@@ -18,6 +22,12 @@
     max-width: 80%;
     
 }
+
 h1{
     font-family: 'Courier New', monospace; /* Fuente de máquina de escribir */
+    text-align: center;
+}
+
+.red{
+  color: crimson;
 }
