@@ -14,6 +14,10 @@ export default function Iagame() {
   const [palabraSeleccionada, setPalabraSeleccionada] = useState(null);
   const [sentence, setSentence]= useState(null);
 
+  const [showCorrectAnswerScreen, setShowCorrectAnswerScreen] = useState(false);
+  const [showIncorrectAnswerScreen, setShowIncorrectAnswerScreen] = useState(false);
+  const [show, setShow] = useState(true);
+
   
     
 
@@ -33,7 +37,38 @@ export default function Iagame() {
       })));
   }, []);
 
+  const nextSentence = () =>{
+    const nuevaOracion = oraciones[Math.floor(Math.random() * oraciones.length)];
+    setOracionActual(nuevaOracion);
+    setSentence(nuevaOracion.split(' '))
+    setPalabras(nuevaOracion.split(' ').map(palabra => ({
+        texto: palabra,
+        seleccionado: false
+      })));
+    setInputs(nuevaOracion.split(' ').map(palabra => ({
+        value:palabra,
+        texto: "",
+        seleccionado: false
+      })));
+      setShowCorrectAnswerScreen(false);
+      setShow(true);
 
+  }
+
+  const tryAgain = () => {
+    const inputs = document.querySelectorAll(".input");
+    clearInputs(inputs);
+    setShowIncorrectAnswerScreen(false);
+    setShow(true);
+}
+
+  const showIncorrectWords = (words) => {
+    setShowIncorrectAnswerScreen(true);
+}
+const showCorrectAnswerResume = () => {
+    console.log("respuesta correcta")
+    setShowCorrectAnswerScreen(true);
+}
 
   const handleButtonClick = (index) => {
     //guarda la palabra segun el boton en otro estado
@@ -79,10 +114,20 @@ export default function Iagame() {
         return false
     })
 
-    console.log(evaluation)
+    setShow(false);
+    
 
     const isCorrect = evaluation.every(matchWord => matchWord === true);
     console.log(isCorrect)
+
+    if(isCorrect){
+      showCorrectAnswerResume();
+
+  }
+  else {
+      console.log("respuesta incorrecta")
+      showIncorrectWords(evaluation);
+  }
 
   };
   return (
@@ -119,7 +164,41 @@ export default function Iagame() {
       </div>
 
       <div className="control-container">
-      <button className="button" onClick={comprobarOracion}>Comprobar</button>
+      {
+                        showCorrectAnswerScreen && (
+                            <>
+                                <div>
+                                    <h1>Correcto</h1>
+                                    <p>{`Oración : ${sentence.join(" ")}`}</p>
+                                    
+                                </div>
+                                <button className='button' onClick={nextSentence} >
+                                    Continuar
+                                </button>
+                            </>
+                        )
+                    }
+
+                    {
+                        showIncorrectAnswerScreen && (
+                            <>
+                                <div>
+                                    <h1 className='red'>Incorrecto</h1>
+                                    
+                            
+                                </div>
+                                <button className='button' onClick={tryAgain} >
+                                    Volver a intentar
+                                </button>
+                            </>
+                        )
+                    }
+                    {
+                      show && (
+<button className="button" onClick={comprobarOracion}>Comprobar</button>
+                      )
+                    }
+      
       </div>
     </div>
     </div>
