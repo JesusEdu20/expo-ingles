@@ -1,6 +1,8 @@
 
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
+import Confetti from 'react-confetti';
 import Button from './Button.jsx';
 import Input from './Input.jsx';
 import oraciones from "../json/sentencesGame.json";
@@ -19,7 +21,7 @@ export default function Iagame() {
   const [show, setShow] = useState(true);
 
   
-    
+  
 
   useEffect(() => {
     // Seleccionar una oración aleatoria al cargar la página
@@ -181,6 +183,11 @@ const showCorrectAnswerResume = () => {
       {
                         showCorrectAnswerScreen && (
                             <>
+                            <Confetti
+      width={1500}
+      height={900}
+      gravity={1}
+    />
                                 <div>
                                     <h1>Correcto</h1>
                                     <p>{`Oración : ${sentence.join(" ")}`}</p>
