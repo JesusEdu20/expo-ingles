@@ -20,6 +20,7 @@ export default function Iagame() {
   useEffect(() => {
     // Seleccionar una oración aleatoria al cargar la página
     const nuevaOracion = oraciones[Math.floor(Math.random() * oraciones.length)];
+
     setOracionActual(nuevaOracion);
     setSentence(nuevaOracion.split(' '))
     setPalabras(nuevaOracion.split(' ').map(palabra => ({
@@ -44,7 +45,7 @@ export default function Iagame() {
       seleccionado: i === index
     })));
     
-    console.log("la palabras seleccionada es: " +palabraSeleccionada)
+    console.log("la palabras seleccionada es: " + palabraSeleccionada)
     
   };
 
