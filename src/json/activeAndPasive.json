@@ -1,0 +1,83 @@
+[
+    {
+      "type": "active",
+      "text": "The cat chased the mouse."
+    },
+    {
+      "type": "passive",
+      "text": "The mouse was chased by the cat."
+    },
+    {
+      "type": "active",
+      "text": "She wrote a letter."
+    },
+    {
+      "type": "passive",
+      "text": "A letter was written by her."
+    },
+    {
+      "type": "active",
+      "text": "The chef cooked the meal."
+    },
+    {
+      "type": "passive",
+      "text": "The meal was cooked by the chef."
+    },
+    {
+      "type": "active",
+      "text": "The team won the match."
+    },
+    {
+      "type": "passive",
+      "text": "The match was won by the team."
+    },
+    {
+      "type": "active",
+      "text": "He painted the house."
+    },
+    {
+      "type": "passive",
+      "text": "The house was painted by him."
+    },
+    {
+      "type": "active",
+      "text": "They cleaned the park."
+    },
+    {
+      "type": "passive",
+      "text": "The park was cleaned by them."
+    },
+    {
+      "type": "active",
+      "text": "The company launched a new product."
+    },
+    {
+      "type": "passive",
+      "text": "A new product was launched by the company."
+    },
+    {
+      "type": "active",
+      "text": "The dog bit the man."
+    },
+    {
+      "type": "passive",
+      "text": "The man was bitten by the dog."
+    },
+    {
+      "type": "active",
+      "text": "She read the book."
+    },
+    {
+      "type": "passive",
+      "text": "The book was read by her."
+    },
+    {
+      "type": "active",
+      "text": "The students completed the project."
+    },
+    {
+      "type": "passive",
+      "text": "The project was completed by the students."
+    }
+]
+  
