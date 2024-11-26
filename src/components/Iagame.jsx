@@ -6,7 +6,7 @@ import Confetti from 'react-confetti';
 import Button from './Button.jsx';
 import Input from './Input.jsx';
 import oraciones from "../json/sentencesGame.json";
-import "./Iagame.css"
+import "./Iagame.css";
 
 export default function Iagame() {
   const [oracionActual, setOracionActual] = useState('');
