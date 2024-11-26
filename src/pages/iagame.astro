@@ -1,0 +1,34 @@
+---
+import Game from "../components/Iagame.jsx";
+---
+
+<Game client:only="react" />
+<div class="botones-juegos">
+    <a class="linkGame" href="/"><h3>Inicio</h3></a>
+</div>
+<style>
+    .botones-juegos {
+        margin-top: -50px;
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .linkGame {
+        font-size: 30px;
+        text-decoration: none;
+        color: white;
+        padding: 10px 50px;
+        border-radius: 20px;
+
+        background-color: #412174;
+        transition: all;
+        transition-duration: 0.5s;
+    }
+
+    .linkGame:hover {
+        font-size: 35px;
+
+        background-color: #217074;
+    }
+</style>
